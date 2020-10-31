@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\V1\AuthController;
+use App\Http\Controllers\API\V1\User\UserProfileController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,15 @@ Route::group(['prefix' => '/v1'], function (){
     });
 
     Route::group(['middleware' => ['auth:sanctum']], function (){
+        Route::group(['prefix' => '/user'], function (){
+            Route::get('/{alias}/settings/profile', [UserProfileController::class, 'index']);
+            Route::put('/{alias}/settings/profile', [UserProfileController::class, 'updateProfile']);
+            Route::put('/{alias}/settings/avatar', [UserProfileController::class, 'updateAvatar']);
+            Route::delete('/{alias}/settings/avatar', [UserProfileController::class, 'deleteAvatar']);
+            Route::put('/{alias}/settings/cover', [UserProfileController::class, 'updateCover']);
+            Route::delete('/{alias}/settings/cover', [UserProfileController::class, 'deleteCover']);
+        });
+
         Route::post('/auth/logout', [AuthController::class, 'logout']);
     });
 });

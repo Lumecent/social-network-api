@@ -37,11 +37,22 @@ class UserRepository extends BaseRepository
     /**
      * Find users by email address
      *
-     * @param $email
+     * @param string $email
      * @return Model
      */
-    public function findByEmail($email)
+    public function findByEmail(string $email)
     {
         return $this->startConditions()->where('email', $email)->first();
+    }
+
+    /**
+     * Getting users by alias
+     *
+     * @param string $alias
+     * @return mixed
+     */
+    public function findByAlias(string $alias)
+    {
+        return $this->startConditions()->where('alias', $alias)->first();
     }
 }
