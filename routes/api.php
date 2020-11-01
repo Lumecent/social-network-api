@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\V1\AuthController;
 use App\Http\Controllers\API\V1\User\UserProfileController;
 use App\Http\Controllers\API\V1\User\UserSocialController;
+use App\Http\Controllers\API\V1\User\UserSecurityController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,8 @@ Route::group(['prefix' => '/v1'], function (){
             Route::post('/{alias}/settings/social', [UserSocialController::class, 'store']);
             Route::put('/{alias}/settings/social/{social_id}', [UserSocialController::class, 'update']);
             Route::delete('/{alias}/settings/social/{social_id}', [UserSocialController::class, 'destroy']);
+
+            Route::put('/{alias}/settings/password', [UserSecurityController::class, 'updatePassword']);
         });
 
         Route::post('/auth/logout', [AuthController::class, 'logout']);

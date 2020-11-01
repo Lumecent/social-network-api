@@ -11,6 +11,7 @@ use App\Services\Service\User\LoginService;
 use App\Services\Service\User\RegisterService;
 use App\Services\Service\User\UpdateAvatarService;
 use App\Services\Service\User\UpdateCoverService;
+use App\Services\Service\User\UpdatePasswordService;
 use App\Services\Service\User\UpdateProfileService;
 use App\Services\Service\User\UpdateSocialService;
 
@@ -23,6 +24,7 @@ use App\Services\Service\User\UpdateSocialService;
  * @property RegisterService $register
  * @property UpdateAvatarService $updateAvatar
  * @property UpdateCoverService $updateCover
+ * @property UpdatePasswordService $updatePassword
  * @property UpdateProfileService $updateProfile
  * @property UpdateSocialService $updateSocial
  *
@@ -42,6 +44,7 @@ class UserService extends Factory
             'register' => RegisterService::class,
             'updateAvatar' => UpdateAvatarService::class,
             'updateCover' => UpdateCoverService::class,
+            'updatePassword' => UpdatePasswordService::class,
             'updateProfile' => UpdateProfileService::class,
             'updateSocial' => UpdateSocialService::class,
         ];
