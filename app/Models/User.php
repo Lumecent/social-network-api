@@ -19,6 +19,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $cover
  * @property string $info
  * @property string $date_bd
+ * @property integer $socials
  * @property integer $friends
  * @property integer $followers
  * @property integer $follows
@@ -56,4 +57,9 @@ class User extends Authenticatable
         'remember_token',
         'updated_at',
     ];
+
+    public function social()
+    {
+        return $this->hasMany(UserSocial::class);
+    }
 }

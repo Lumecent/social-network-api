@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('cover');
             $table->longText('info')->nullable();
             $table->date('date_bd')->nullable();
+            $table->integer('socials')->default(0);
             $table->integer('friends')->default(0);
             $table->integer('followers')->default(0);
             $table->integer('follows')->default(0);

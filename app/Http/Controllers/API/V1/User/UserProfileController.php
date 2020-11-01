@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\API\V1\User;
 
 use App\Helpers\Answer;
+use App\Http\Controllers\API\V1\BaseController;
 use App\Http\Requests\User\Profile\UserAvatarRequest;
 use App\Http\Requests\User\Profile\UserCoverRequest;
 use App\Http\Requests\User\Profile\UserProfileRequest;
 use App\Repositories\Repository;
 use App\Services\Service;
 
-class UserProfileController
+class UserProfileController extends BaseController
 {
     /**
      * Show user profile
