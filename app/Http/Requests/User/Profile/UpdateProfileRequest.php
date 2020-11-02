@@ -13,10 +13,10 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property string $info
  * @property string $date_bd
  *
- * Class UserProfileRequest
+ * Class UpdateProfileRequest
  * @package App\Http\Requests\User\Profile
  */
-class UserProfileRequest extends FormRequest
+class UpdateProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

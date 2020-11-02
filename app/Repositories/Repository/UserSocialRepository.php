@@ -16,4 +16,15 @@ class UserSocialRepository extends BaseRepository
     {
         return $this->startConditions()->where('id', $id)->where('user_id', $userID)->first();
     }
+
+    /**
+     * Getting social contact on user id
+     *
+     * @param $userId
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function findByUserId($userId)
+    {
+        return $this->startConditions()->where('user_id', $userId)->get();
+    }
 }

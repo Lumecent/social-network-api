@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\API\V1\AuthController;
-use App\Http\Controllers\API\V1\User\UserProfileController;
-use App\Http\Controllers\API\V1\User\UserSocialController;
-use App\Http\Controllers\API\V1\User\UserSecurityController;
+use App\Http\Controllers\API\V1\User\ProfileController;
+use App\Http\Controllers\API\V1\User\SocialController;
+use App\Http\Controllers\API\V1\User\SecurityController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -26,18 +26,19 @@ Route::group(['prefix' => '/v1'], function (){
 
     Route::group(['middleware' => ['auth:sanctum']], function (){
         Route::group(['prefix' => '/user'], function (){
-            Route::get('/{alias}/settings/profile', [UserProfileController::class, 'index']);
-            Route::put('/{alias}/settings/profile', [UserProfileController::class, 'updateProfile']);
-            Route::put('/{alias}/settings/avatar', [UserProfileController::class, 'updateAvatar']);
-            Route::delete('/{alias}/settings/avatar', [UserProfileController::class, 'deleteAvatar']);
-            Route::put('/{alias}/settings/cover', [UserProfileController::class, 'updateCover']);
-            Route::delete('/{alias}/settings/cover', [UserProfileController::class, 'deleteCover']);
+            Route::get('/{alias}/settings/profile', [ProfileController::class, 'index']);
+            Route::put('/{alias}/settings/profile', [ProfileController::class, 'updateProfile']);
+            Route::put('/{alias}/settings/avatar', [ProfileController::class, 'updateAvatar']);
+            Route::delete('/{alias}/settings/avatar', [ProfileController::class, 'deleteAvatar']);
+            Route::put('/{alias}/settings/cover', [ProfileController::class, 'updateCover']);
+            Route::delete('/{alias}/settings/cover', [ProfileController::class, 'deleteCover']);
 
-            Route::post('/{alias}/settings/social', [UserSocialController::class, 'store']);
-            Route::put('/{alias}/settings/social/{social_id}', [UserSocialController::class, 'update']);
-            Route::delete('/{alias}/settings/social/{social_id}', [UserSocialController::class, 'destroy']);
+            Route::get('/{alias}/settings/social', [SocialController::class, 'index']);
+            Route::post('/{alias}/settings/social', [SocialController::class, 'store']);
+            Route::put('/{alias}/settings/social/{social_id}', [SocialController::class, 'update']);
+            Route::delete('/{alias}/settings/social/{social_id}', [SocialController::class, 'destroy']);
 
-            Route::put('/{alias}/settings/password', [UserSecurityController::class, 'updatePassword']);
+            Route::put('/{alias}/settings/password', [SecurityController::class, 'updatePassword']);
         });
 
         Route::post('/auth/logout', [AuthController::class, 'logout']);

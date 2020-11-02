@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\API\V1\User;
 
-use App\Helpers\Answer;
 use App\Http\Controllers\API\V1\BaseController;
 use App\Http\Requests\User\Security\UpdatePasswordRequest;
 use App\Services\Service;
 
-class UserSecurityController extends BaseController
+class SecurityController extends BaseController
 {
     /**
      * Update user password
@@ -19,10 +18,6 @@ class UserSecurityController extends BaseController
     {
         $result = Service::getInstance()->user->updatePassword->run($request);
 
-        if ($result){
-            return Answer::send('Success', [], 200);
-        }
-
-        return Answer::send('Error', [], 400);
+        return $this->response($result);
     }
 }

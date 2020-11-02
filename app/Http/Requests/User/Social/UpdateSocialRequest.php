@@ -11,10 +11,10 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property string $social
  * @property string $url
  *
- * Class UserCreateSocialRequest
+ * Class CreateSocialRequest
  * @package App\Http\Requests\User\Social
  */
-class UserUpdateSocialRequest extends FormRequest
+class UpdateSocialRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

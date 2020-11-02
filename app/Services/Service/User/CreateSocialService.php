@@ -2,7 +2,7 @@
 
 namespace App\Services\Service\User;
 
-use App\Http\Requests\User\Social\UserCreateSocialRequest;
+use App\Http\Requests\User\Social\CreateSocialRequest;
 use App\Repositories\Repository;
 use App\Services\BaseService;
 use Illuminate\Support\Facades\DB;
@@ -12,9 +12,9 @@ class CreateSocialService extends BaseService
     /**
      * Create social contact
      *
-     * @param UserCreateSocialRequest $request
+     * @param CreateSocialRequest $request
      */
-    public function run(UserCreateSocialRequest $request)
+    public function run(CreateSocialRequest $request)
     {
         DB::beginTransaction();
 

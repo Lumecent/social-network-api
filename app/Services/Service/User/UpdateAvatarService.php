@@ -3,7 +3,7 @@
 namespace App\Services\Service\User;
 
 use App\Helpers\PreparingFileSystem;
-use App\Http\Requests\User\Profile\UserAvatarRequest;
+use App\Http\Requests\User\Profile\UpdateAvatarRequest;
 use App\Repositories\Repository;
 use App\Services\BaseService;
 use Illuminate\Support\Str;
@@ -14,11 +14,11 @@ class UpdateAvatarService extends BaseService
     /**
      * Update avatar user
      *
-     * @param UserAvatarRequest $request
+     * @param UpdateAvatarRequest $request
      * @return false|\Illuminate\Contracts\Auth\Authenticatable|null
      * @throws \ErrorException
      */
-    public function run(UserAvatarRequest $request)
+    public function run(UpdateAvatarRequest $request)
     {
         $user = Repository::getInstance()->user->getAuthUser();
 

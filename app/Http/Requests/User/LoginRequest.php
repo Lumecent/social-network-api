@@ -5,16 +5,13 @@ namespace App\Http\Requests\User;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- *
- * @property string $name
  * @property string $email
  * @property string $password
- * @property string $password_confirm
  *
- * Class UserRegisterRequest
+ * Class LoginRequest
  * @package App\Http\Requests\User
  */
-class UserRegisterRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,17 +31,15 @@ class UserRegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|min:3|max:30|regex:/^[a-zа-яё\d\s-]+$/iu',
-            'email' => 'required|string|email|unique:users,email',
+            'email' => 'required|string|email|exists:users,email',
             'password' => 'required|string|min:6|max:64',
-            'password_confirm' => 'required|string|same:password'
         ];
     }
 
     public function messages()
     {
         return [
-            'name.regex' => 'Имя может содержать буквы, цифры, а так же тире'
+            'email.exists' => 'Введенные учетные данные неверны',
         ];
     }
 }

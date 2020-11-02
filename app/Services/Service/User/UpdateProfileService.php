@@ -3,7 +3,7 @@
 namespace App\Services\Service\User;
 
 use App\Helpers\StringClean;
-use App\Http\Requests\User\Profile\UserProfileRequest;
+use App\Http\Requests\User\Profile\UpdateProfileRequest;
 use App\Repositories\Repository;
 use App\Services\BaseService;
 use Illuminate\Support\Str;
@@ -13,10 +13,10 @@ class UpdateProfileService extends BaseService
     /**
      * Update user profile
      *
-     * @param UserProfileRequest $request
+     * @param UpdateProfileRequest $request
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
-    public function run(UserProfileRequest $request)
+    public function run(UpdateProfileRequest $request)
     {
         $user = Repository::getInstance()->user->getAuthUser();
 

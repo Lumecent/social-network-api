@@ -10,10 +10,10 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
  * @property string $cover
  *
- * Class UserCoverRequest
+ * Class UpdateCoverRequest
  * @package App\Http\Requests\User\Profile
  */
-class UserCoverRequest extends FormRequest
+class UpdateCoverRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

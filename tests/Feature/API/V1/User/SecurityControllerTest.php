@@ -4,7 +4,7 @@ namespace Tests\Feature\API\V1\User;
 
 use Tests\BaseTest;
 
-class UserSecurityControllerTest extends BaseTest
+class SecurityControllerTest extends BaseTest
 {
     private $dataPassword;
 

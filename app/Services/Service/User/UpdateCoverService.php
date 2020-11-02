@@ -3,7 +3,7 @@
 namespace App\Services\Service\User;
 
 use App\Helpers\PreparingFileSystem;
-use App\Http\Requests\User\Profile\UserCoverRequest;
+use App\Http\Requests\User\Profile\UpdateCoverRequest;
 use App\Repositories\Repository;
 use App\Services\BaseService;
 use Illuminate\Support\Str;
@@ -14,11 +14,11 @@ class UpdateCoverService extends BaseService
     /**
      * Update user cover
      *
-     * @param UserCoverRequest $request
+     * @param UpdateCoverRequest $request
      * @return false|\Illuminate\Contracts\Auth\Authenticatable|null
      * @throws \ErrorException
      */
-    public function run(UserCoverRequest $request)
+    public function run(UpdateCoverRequest $request)
     {
         $user = Repository::getInstance()->user->getAuthUser();
 

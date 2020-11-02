@@ -10,10 +10,10 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
  * @property string $avatar
  *
- * Class UserAvatarRequest
+ * Class UpdateAvatarRequest
  * @package App\Http\Requests\User\Profile
  */
-class UserAvatarRequest extends FormRequest
+class UpdateAvatarRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

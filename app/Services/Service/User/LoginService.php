@@ -2,14 +2,14 @@
 
 namespace App\Services\Service\User;
 
-use App\Http\Requests\User\UserLoginRequest;
+use App\Http\Requests\User\LoginRequest;
 use App\Repositories\Repository;
 use App\Services\BaseService;
 use Illuminate\Support\Facades\Hash;
 
 class LoginService extends BaseService
 {
-    public function run(UserLoginRequest $request)
+    public function run(LoginRequest $request)
     {
         $user = Repository::getInstance()->user->findByEmail($request->email);
 

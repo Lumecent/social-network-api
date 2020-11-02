@@ -2,7 +2,7 @@
 
 namespace App\Services\Service\User;
 
-use App\Http\Requests\User\Social\UserUpdateSocialRequest;
+use App\Http\Requests\User\Social\UpdateSocialRequest;
 use App\Repositories\Repository;
 use App\Services\BaseService;
 
@@ -11,10 +11,10 @@ class UpdateSocialService extends BaseService
     /**
      * Update user social
      *
-     * @param UserUpdateSocialRequest $request
+     * @param UpdateSocialRequest $request
      * @return mixed
      */
-    public function run(UserUpdateSocialRequest $request)
+    public function run(UpdateSocialRequest $request)
     {
         $user = Repository::getInstance()->user->getAuthUser();
 

@@ -5,7 +5,7 @@ namespace Tests\Feature\API\V1\User;
 use App\Helpers\Test\TestHelper;
 use Tests\BaseTest;
 
-class UserSocialControllerTest extends BaseTest
+class SocialControllerTest extends BaseTest
 {
     private $dataSocial;
 

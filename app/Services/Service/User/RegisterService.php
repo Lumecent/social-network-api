@@ -3,7 +3,7 @@
 namespace App\Services\Service\User;
 
 use App\Helpers\StringClean;
-use App\Http\Requests\User\UserRegisterRequest;
+use App\Http\Requests\User\RegisterRequest;
 use App\Repositories\Repository;
 use App\Services\BaseService;
 use Illuminate\Support\Facades\DB;
@@ -14,10 +14,10 @@ class RegisterService extends BaseService
     /**
      * Registration new users
      *
-     * @param UserRegisterRequest $request
+     * @param RegisterRequest $request
      * @return \Illuminate\Database\Eloquent\Model
      */
-    public function run(UserRegisterRequest $request)
+    public function run(RegisterRequest $request)
     {
         DB::beginTransaction();
 

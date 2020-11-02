@@ -2,39 +2,37 @@
 
 namespace App\Http\Controllers\API\V1;
 
-use App\Helpers\Answer;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\User\UserLoginRequest;
-use App\Http\Requests\User\UserRegisterRequest;
+use App\Http\Requests\User\LoginRequest;
+use App\Http\Requests\User\RegisterRequest;
 use App\Repositories\Repository;
 use App\Services\Service;
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
-    public function register(UserRegisterRequest $request)
+    public function register(RegisterRequest $request)
     {
         $user = Service::getInstance()->user->register->run($request);
+        $token = null;
 
         if ($user){
             $token = $user->createToken($user->alias)->plainTextToken;
-
-            return Answer::send('Success', compact('user', 'token'), 200);
         }
 
-        return Answer::send('Error', [], 400);
+        return $this->response($user, compact('user', 'token'));
     }
 
-    public function login(UserLoginRequest $request)
+    public function login(LoginRequest $request)
     {
         $user = Service::getInstance()->user->login->run($request);
+        $token = null;
 
         if ($user){
             $token = $user->createToken($user->alias)->plainTextToken;
 
-            return Answer::send('Success', compact('user', 'token'), 200);
+            return $this->response($user, compact('user', 'token'));
         }
 
-        return Answer::send('Error', ['email' => 'Введенные учетные данные неверны'], 422);
+        return $this->response(false, ['email' => 'Введенные учетные данные неверны'], 200, 422);
     }
 
     public function logout()
@@ -43,6 +41,6 @@ class AuthController extends Controller
 
         $user->tokens->each->delete();
 
-        return Answer::send('Success', [], 200);
+        return $this->response(true);
     }
 }
