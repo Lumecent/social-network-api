@@ -3,14 +3,18 @@
 namespace App\Repositories;
 
 use App\Factory;
-use App\Repositories\Repository\UserRepository;
-use App\Repositories\Repository\UserSocialRepository;
+use App\Repositories\Repository\RoleRepository;
 use App\Repositories\Repository\SocialRepository;
+use App\Repositories\Repository\UserRepository;
+use App\Repositories\Repository\UserRoleRepository;
+use App\Repositories\Repository\UserSocialRepository;
 
 /**
- * @property UserRepository $user
- * @property UserSocialRepository $userSocial
+ * @property RoleRepository $role
  * @property SocialRepository $social
+ * @property UserRepository $user
+ * @property UserRoleRepository $userRole
+ * @property UserSocialRepository $userSocial
  *
  * Class Repository
  * @package App\Repositories
@@ -22,9 +26,11 @@ class Repository extends Factory
     protected function aliases()
     {
         return [
-            'user' => UserRepository::class,
-            'userSocial' => UserSocialRepository::class,
+            'role' => RoleRepository::class,
             'social' => SocialRepository::class,
+            'user' => UserRepository::class,
+            'userRole' => UserRoleRepository::class,
+            'userSocial' => UserSocialRepository::class,
         ];
     }
 }

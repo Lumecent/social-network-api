@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $id
  * @property string $name
  *
- * Class Social
+ * Class RoleRepository
  * @package App\Models
  */
-class Social extends Model
+class Role extends Model
 {
     use HasFactory;
 

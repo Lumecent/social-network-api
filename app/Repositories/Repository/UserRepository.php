@@ -55,4 +55,16 @@ class UserRepository extends BaseRepository
     {
         return $this->startConditions()->where('alias', $alias)->first();
     }
+
+    /**
+     * Getting user and checked relations
+     *
+     * @param string $alias
+     * @param string|array $relations
+     * @return mixed
+     */
+    public function findByAliasRelations(string $alias, $relations)
+    {
+        return $this->startConditions()->where('alias', $alias)->with($relations)->first();
+    }
 }
