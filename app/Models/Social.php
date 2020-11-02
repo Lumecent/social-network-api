@@ -10,9 +10,4 @@ class Social extends Model
     use HasFactory;
 
     public $timestamps = false;
-
-    public function user()
-    {
-        return $this->belongsToMany(User::class)->as('users');
-    }
 }

@@ -7,6 +7,7 @@ use App\Services\Service;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
+ * @property integer $id
  * @property string $social
  * @property string $url
  *
@@ -43,8 +44,17 @@ class UserUpdateSocialRequest extends FormRequest
         ];
 
         return [
+            'id' => 'required|exists:users_socials,id',
             'social' => ['required', 'exists:socials,name'],
             'url' => ['required', new RegexSocialUrl($regexUrl, $this->request->get('social'))],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'id' => 'Контакт',
+            'social' => 'Вид связи'
         ];
     }
 }

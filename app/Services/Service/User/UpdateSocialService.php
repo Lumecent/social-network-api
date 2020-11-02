@@ -12,13 +12,13 @@ class UpdateSocialService extends BaseService
      * Update user social
      *
      * @param UserUpdateSocialRequest $request
-     * @param $socialID
+     * @return mixed
      */
-    public function run(UserUpdateSocialRequest $request, $socialID)
+    public function run(UserUpdateSocialRequest $request)
     {
         $user = Repository::getInstance()->user->getAuthUser();
 
-        $social = Repository::getInstance()->userSocial->findByUpdate($socialID, $user->id);
+        $social = Repository::getInstance()->userSocial->findByUpdate($request->id, $user->id);
 
         $social->social = $request->social;
         $social->url = $request->url;

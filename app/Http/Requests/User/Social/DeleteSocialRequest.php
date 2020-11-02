@@ -32,7 +32,14 @@ class DeleteSocialRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'exists:users_socials,id'
+            'id' => 'required|exists:users_socials,id',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'id' => 'Контакт',
         ];
     }
 }

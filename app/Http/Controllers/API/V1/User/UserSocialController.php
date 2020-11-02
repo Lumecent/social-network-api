@@ -32,13 +32,11 @@ class UserSocialController extends BaseController
      * Update user social
      *
      * @param UserUpdateSocialRequest $request
-     * @param $alias
-     * @param $socialID
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(UserUpdateSocialRequest $request, $alias, $socialID)
+    public function update(UserUpdateSocialRequest $request)
     {
-        $result = Service::getInstance()->user->updateSocial->run($request, $socialID);
+        $result = Service::getInstance()->user->updateSocial->run($request);
 
         if ($result){
             return Answer::send('Success', [], 200);
