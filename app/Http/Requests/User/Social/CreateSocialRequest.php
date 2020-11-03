@@ -33,18 +33,9 @@ class CreateSocialRequest extends FormRequest
      */
     public function rules()
     {
-        $regexUrl = [
-            'vk' => '(https{0,1}:\/\/)?(www\.)?(vk.com\/)(id\d|[a-zA-z][a-zA-Z0-9_.]{2,})',
-            'fb' => '(https{0,1}:\/\/)?(www\.)?(facebook.com\/)([a-zA-z][a-zA-Z0-9_.]{2,})',
-            'ok' => '(https{0,1}:\/\/)?(www\.)?(ok.ru\/)([a-zA-z][a-zA-Z0-9_.]{2,})',
-            'twit' => '(https{0,1}:\/\/)?(www\.)?(twitter.com\/)([a-zA-z][a-zA-Z0-9_.]{2,})',
-            'inst' => '(https{0,1}:\/\/)?(www\.)?(instagram.com\/)([a-zA-z][a-zA-Z0-9_.]{2,})',
-            'site' => '(http:\/\/|https:\/\/)?([^\.\/]+\.)*([a-zA-Z0-9])([a-zA-Z0-9-]*)\.([a-zA-Z]{2,6})(\/.*)',
-        ];
-
         return [
             'social' => ['required', 'exists:socials,name', new MaxCountSocial(10)],
-            'url' => ['required', new RegexSocialUrl($regexUrl, $this->request->get('social'))],
+            'url' => ['required', new RegexSocialUrl($this->request->get('social'))],
         ];
     }
 }

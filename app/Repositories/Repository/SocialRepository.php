@@ -11,4 +11,14 @@ class SocialRepository extends BaseRepository
     {
         return Model::class;
     }
+
+    /**
+     * Getting all social
+     *
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model[]
+     */
+    public function getAll()
+    {
+        return $this->startConditions()->all();
+    }
 }

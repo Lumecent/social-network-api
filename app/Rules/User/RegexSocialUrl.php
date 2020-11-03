@@ -2,22 +2,20 @@
 
 namespace App\Rules\User;
 
+use App\Repositories\Repository;
 use Illuminate\Contracts\Validation\Rule;
 
 class RegexSocialUrl implements Rule
 {
-    private $regexUrl;
     private $social;
 
     /**
      * Create a new rule instance.
      *
-     * @param array $regexUrl
      * @param mixed $social
      */
-    public function __construct(array $regexUrl, $social)
+    public function __construct($social)
     {
-        $this->regexUrl = $regexUrl;
         $this->social = $social;
     }
 
@@ -31,12 +29,22 @@ class RegexSocialUrl implements Rule
     public function passes($attribute, $value)
     {
         if ($value && $this->social){
-            $regex = $this->regexUrl[$this->social] ?? null;
+            $social = Repository::getInstance()->social->getAll();
 
-            return $regex && preg_match("/{$regex}/", $value);
+            $regex = null;
+
+            foreach ($social as $item){
+                if ($item->name == $this->social){
+                    $regex = $item->regex;
+                }
+            }
+
+            if ($regex){
+                return $regex && preg_match("/{$regex}/", $value);
+            }
         }
 
-        return true;
+        return false;
     }
 
     /**

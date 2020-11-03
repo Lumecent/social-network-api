@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
          User::factory(10)->create();
 
          $social = [
-             ['name' => 'vk'],
-             ['name' => 'fb'],
-             ['name' => 'ok'],
-             ['name' => 'twit'],
-             ['name' => 'inst'],
-             ['name' => 'site']
+             ['name' => 'vk', 'regex' => '(https{0,1}:\/\/)?(www\.)?(vk.com\/)(id\d|[a-zA-z][a-zA-Z0-9_.]{2,})'],
+             ['name' => 'fb', 'regex' => '(https{0,1}:\/\/)?(www\.)?(facebook.com\/)([a-zA-z][a-zA-Z0-9_.]{2,})'],
+             ['name' => 'ok', 'regex' => '(https{0,1}:\/\/)?(www\.)?(ok.ru\/)([a-zA-z][a-zA-Z0-9_.]{2,})'],
+             ['name' => 'twit', 'regex' => '(https{0,1}:\/\/)?(www\.)?(twitter.com\/)([a-zA-z][a-zA-Z0-9_.]{2,})'],
+             ['name' => 'inst', 'regex' => '(https{0,1}:\/\/)?(www\.)?(instagram.com\/)([a-zA-z][a-zA-Z0-9_.]{2,})'],
+             ['name' => 'site', 'regex' => '(http:\/\/|https:\/\/)?([^\.\/]+\.)*([a-zA-Z0-9])([a-zA-Z0-9-]*)\.([a-zA-Z]{2,6})(\/.*)']
          ];
 
          foreach ($social as $s){
