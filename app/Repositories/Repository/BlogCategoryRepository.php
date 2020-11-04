@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Repository;
 
-use App\Models\Social as Model;
+use App\Models\BlogCategory as Model;
 use App\Repositories\BaseRepository;
 
-class SocialRepository extends BaseRepository
+class BlogCategoryRepository extends BaseRepository
 {
     protected function getModelClass()
     {
@@ -13,7 +13,7 @@ class SocialRepository extends BaseRepository
     }
 
     /**
-     * Getting all social
+     * Getting all category for blog
      *
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model[]
      */
@@ -23,7 +23,7 @@ class SocialRepository extends BaseRepository
     }
 
     /**
-     * Getting social by id
+     * Getting category by id
      *
      * @param int $id
      * @return Model
@@ -34,7 +34,7 @@ class SocialRepository extends BaseRepository
     }
 
     /**
-     * Getting social by name
+     * Getting category by name
      *
      * @param string $name
      * @return Model

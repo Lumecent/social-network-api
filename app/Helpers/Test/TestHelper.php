@@ -42,4 +42,9 @@ class TestHelper
         $userRole->role = $role;
         $userRole->save();
     }
+
+    public static function getAdminLastBlogCategory()
+    {
+        return Repository::getInstance()->blogCategory->startConditions()->orderBy('id', 'desc')->first();
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BlogCategory;
 use App\Models\Social;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -29,5 +30,19 @@ class DatabaseSeeder extends Seeder
          foreach ($social as $s){
              Social::factory(1)->create($s);
          }
+
+         $blogCategory = [
+             ['name' => 'Личное'],
+             ['name' => 'Общее'],
+             ['name' => 'Самопиар'],
+             ['name' => 'Услуги'],
+             ['name' => 'Статьи'],
+             ['name' => 'Опросы'],
+             ['name' => 'Конкурсы']
+         ];
+
+        foreach ($blogCategory as $s){
+            BlogCategory::factory(1)->create($s);
+        }
     }
 }
