@@ -4,6 +4,7 @@ use App\Http\Controllers\API\V1\AuthController;
 use App\Http\Controllers\API\V1\User\ProfileController;
 use App\Http\Controllers\API\V1\User\SocialController;
 use App\Http\Controllers\API\V1\User\SecurityController;
+use App\Http\Controllers\API\V1\Admin\AdminSocialController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,13 @@ Route::group(['prefix' => '/v1'], function (){
             Route::delete('/{alias}/settings/social/{social_id}', [SocialController::class, 'destroy']);
 
             Route::put('/{alias}/settings/password', [SecurityController::class, 'updatePassword']);
+        });
+
+        Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function (){
+            Route::get('/social', [AdminSocialController::class, 'index']);
+            Route::post('/social', [AdminSocialController::class, 'store']);
+            Route::put('/social/{social_id}', [AdminSocialController::class, 'update']);
+            Route::delete('/social/{social_id}', [AdminSocialController::class, 'destroy']);
         });
 
         Route::post('/auth/logout', [AuthController::class, 'logout']);

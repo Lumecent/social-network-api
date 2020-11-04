@@ -27,4 +27,19 @@ class TestHelper
     {
         return Repository::getInstance()->user->startConditions()->first();
     }
+
+    public static function getAdminLastSocial()
+    {
+        return Repository::getInstance()->social->startConditions()->orderBy('id', 'desc')->first();
+    }
+
+    public static function addedRole(string $role)
+    {
+        $user = self::getUser();
+
+        $userRole = Repository::getInstance()->userRole->startConditions();
+        $userRole->user_id = $user->id;
+        $userRole->role = $role;
+        $userRole->save();
+    }
 }

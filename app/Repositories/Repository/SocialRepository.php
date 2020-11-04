@@ -21,4 +21,27 @@ class SocialRepository extends BaseRepository
     {
         return $this->startConditions()->all();
     }
+
+    /**
+     * Getting social by id
+     *
+     * @param int $id
+     * @return Model
+     */
+    public function findById(int $id)
+    {
+        print_r($id);
+        return $this->startConditions()->find($id);
+    }
+
+    /**
+     * Getting social by name
+     *
+     * @param string $name
+     * @return Model
+     */
+    public function findByName(string $name)
+    {
+        return $this->startConditions()->where('name', $name)->first();
+    }
 }

@@ -21,6 +21,6 @@ class UserRoleRepository extends BaseRepository
      */
     public function findByNameAndUserId(string $name, int $userID)
     {
-        return $this->startConditions()->where('name', $name)->where('user_id', $userID)->first();
+        return $this->startConditions()->where('role', $name)->where('user_id', $userID)->first();
     }
 }

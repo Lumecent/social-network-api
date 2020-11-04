@@ -81,6 +81,8 @@ class AuthControllerTest extends BaseTest
     {
         $response = $this->postJson($this->urls['register'], $this->dataRegister);
 
+        TestHelper::addedRole('admin');
+
         $response->assertStatus(200);
     }
 

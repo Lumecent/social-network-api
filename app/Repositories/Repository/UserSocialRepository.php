@@ -12,6 +12,11 @@ class UserSocialRepository extends BaseRepository
         return Model::class;
     }
 
+    /**
+     * @param $id
+     * @param $userID
+     * @return Model
+     */
     public function findByUpdate($id, $userID)
     {
         return $this->startConditions()->where('id', $id)->where('user_id', $userID)->first();

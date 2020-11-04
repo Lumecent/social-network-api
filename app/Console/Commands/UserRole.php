@@ -57,7 +57,7 @@ class UserRole extends Command
             $userRole = Repository::getInstance()->userRole->startConditions();
 
             $userRole->user_id = $userID;
-            $userRole->name = $roleName;
+            $userRole->role = $roleName;
 
             $userRole->save();
 
