@@ -20,6 +20,10 @@ use App\Services\Service\Admin\Published\CreatePublishedService;
 use App\Services\Service\Admin\Published\DeletePublishedService;
 use App\Services\Service\Admin\Published\UpdatePublishedService;
 
+use App\Services\Service\Admin\Tag\CreateTagService;
+use App\Services\Service\Admin\Tag\UpdateTagService;
+use App\Services\Service\Admin\Tag\DeleteTagService;
+
 /**
  * @property CreateAccessService $createAccess
  * @property UpdateAccessService $updateAccess
@@ -36,6 +40,10 @@ use App\Services\Service\Admin\Published\UpdatePublishedService;
  * @property CreatePublishedService $createPublished
  * @property DeletePublishedService $deletePublished
  * @property UpdatePublishedService $updatePublished
+ *
+ * @property CreateTagService $createTag
+ * @property UpdateTagService $updateTag
+ * @property DeleteTagService $deleteTag
  *
  * Class AdminService
  * @package App\Services\Service
@@ -60,6 +68,10 @@ class AdminService extends Factory
             'createPublished' => CreatePublishedService::class,
             'deletePublished' => DeletePublishedService::class,
             'updatePublished' => UpdatePublishedService::class,
+
+            'createTag' => CreateTagService::class,
+            'updateTag' => UpdateTagService::class,
+            'deleteTag' => DeleteTagService::class,
         ];
     }
 }

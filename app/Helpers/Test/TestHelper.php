@@ -57,4 +57,9 @@ class TestHelper
     {
         return Repository::getInstance()->published->startConditions()->orderBy('id', 'desc')->first();
     }
+
+    public static function getLastTag()
+    {
+        return Repository::getInstance()->tag->startConditions()->orderBy('id', 'desc')->first();
+    }
 }

@@ -4,10 +4,12 @@ use App\Http\Controllers\API\V1\AuthController;
 use App\Http\Controllers\API\V1\User\ProfileController;
 use App\Http\Controllers\API\V1\User\SocialController;
 use App\Http\Controllers\API\V1\User\SecurityController;
+
 use App\Http\Controllers\API\V1\Admin\AdminSocialController;
 use App\Http\Controllers\API\V1\Admin\AdminBlogCategoryController;
 use App\Http\Controllers\API\V1\Admin\AdminAccessController;
 use App\Http\Controllers\API\V1\Admin\AdminPublishedController;
+use App\Http\Controllers\API\V1\Admin\AdminTagController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -65,6 +67,11 @@ Route::group(['prefix' => '/v1'], function (){
             Route::post('/published', [AdminPublishedController::class, 'store']);
             Route::put('/published/{published_id}', [AdminPublishedController::class, 'update']);
             Route::delete('/published/{published_id}', [AdminPublishedController::class, 'destroy']);
+
+            Route::get('/tag', [AdminTagController::class, 'index']);
+            Route::post('/tag', [AdminTagController::class, 'store']);
+            Route::put('/tag/{tag_id}', [AdminTagController::class, 'update']);
+            Route::delete('/tag/{tag_id}', [AdminTagController::class, 'destroy']);
         });
 
         Route::post('/auth/logout', [AuthController::class, 'logout']);
