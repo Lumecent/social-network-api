@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Service\User;
+namespace App\Services\Service\User\Social;
 
 use App\Http\Requests\User\Social\CreateSocialRequest;
 use App\Repositories\Repository;
@@ -13,6 +13,7 @@ class CreateSocialService extends BaseService
      * Create social contact
      *
      * @param CreateSocialRequest $request
+     * @return bool
      */
     public function run(CreateSocialRequest $request)
     {

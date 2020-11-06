@@ -7,6 +7,7 @@ use App\Http\Controllers\API\V1\User\SecurityController;
 use App\Http\Controllers\API\V1\Admin\AdminSocialController;
 use App\Http\Controllers\API\V1\Admin\AdminBlogCategoryController;
 use App\Http\Controllers\API\V1\Admin\AdminAccessController;
+use App\Http\Controllers\API\V1\Admin\AdminPublishedController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -60,10 +61,10 @@ Route::group(['prefix' => '/v1'], function (){
             Route::put('/access/{access_id}', [AdminAccessController::class, 'update']);
             Route::delete('/access/{access_id}', [AdminAccessController::class, 'destroy']);
 
-            Route::get('/published', [AdminAccessController::class, 'index']);
-            Route::post('/published', [AdminAccessController::class, 'store']);
-            Route::put('/published/{published_id}', [AdminAccessController::class, 'update']);
-            Route::delete('/published/{published_id}', [AdminAccessController::class, 'destroy']);
+            Route::get('/published', [AdminPublishedController::class, 'index']);
+            Route::post('/published', [AdminPublishedController::class, 'store']);
+            Route::put('/published/{published_id}', [AdminPublishedController::class, 'update']);
+            Route::delete('/published/{published_id}', [AdminPublishedController::class, 'destroy']);
         });
 
         Route::post('/auth/logout', [AuthController::class, 'logout']);

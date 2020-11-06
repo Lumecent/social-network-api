@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Service\Admin;
+namespace App\Services\Service\Admin\Published;
 
 use App\Http\Requests\Admin\Published\DeletePublishedRequest;
 use App\Repositories\Repository;

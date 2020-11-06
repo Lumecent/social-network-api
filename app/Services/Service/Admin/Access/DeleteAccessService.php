@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Service\Admin;
+namespace App\Services\Service\Admin\Access;
 
 use App\Http\Requests\Admin\Access\DeleteAccessRequest;
 use App\Repositories\Repository;

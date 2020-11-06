@@ -30,7 +30,7 @@ class CreatePublishedRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|alpha'
+            'name' => 'required|string|alpha|unique:publisheds,name'
         ];
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Service\Admin;
+namespace App\Services\Service\Admin\BlogCategory;
 
 use App\Http\Requests\Admin\BlogCategory\DeleteBlogCategoryRequest;
 use App\Repositories\Repository;

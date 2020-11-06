@@ -32,7 +32,7 @@ class UpdateAccessRequest extends FormRequest
     {
         return [
             'id' => 'required|exists:accesses,id',
-            'name' => 'required|string|alpha'
+            'name' => 'required|string|alpha|unique:accesses,name'
         ];
     }
 

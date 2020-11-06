@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Services\Service\Admin;
+namespace App\Services\Service\Admin\Published;
 
+use App\Helpers\StringClean;
 use App\Http\Requests\Admin\Published\UpdatePublishedRequest;
 use App\Repositories\Repository;
 use App\Services\BaseService;
@@ -18,7 +19,7 @@ class UpdatePublishedService extends BaseService
     {
         $published = Repository::getInstance()->published->findById($request->id);
 
-        $published->name = $request->name;
+        $published->name = StringClean::cleanSpace($request->name);;
 
         return $published->save();
     }

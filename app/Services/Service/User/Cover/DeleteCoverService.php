@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Service\User;
+namespace App\Services\Service\User\Cover;
 
 use App\Helpers\PreparingFileSystem;
 use App\Repositories\Repository;

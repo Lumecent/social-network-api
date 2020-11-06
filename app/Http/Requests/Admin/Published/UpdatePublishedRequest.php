@@ -20,7 +20,7 @@ class UpdatePublishedRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -32,7 +32,7 @@ class UpdatePublishedRequest extends FormRequest
     {
         return [
             'id' => 'required|exists:publisheds,id',
-            'name' => 'required|string|alpha'
+            'name' => 'required|string|alpha|unique:publisheds,name'
         ];
     }
 

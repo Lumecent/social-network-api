@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Service\User;
+namespace App\Services\Service\User\Social;
 
 use App\Http\Requests\User\Social\DeleteSocialRequest;
 use App\Repositories\Repository;
