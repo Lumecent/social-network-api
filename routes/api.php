@@ -59,6 +59,11 @@ Route::group(['prefix' => '/v1'], function (){
             Route::post('/access', [AdminAccessController::class, 'store']);
             Route::put('/access/{access_id}', [AdminAccessController::class, 'update']);
             Route::delete('/access/{access_id}', [AdminAccessController::class, 'destroy']);
+
+            Route::get('/published', [AdminAccessController::class, 'index']);
+            Route::post('/published', [AdminAccessController::class, 'store']);
+            Route::put('/published/{published_id}', [AdminAccessController::class, 'update']);
+            Route::delete('/published/{published_id}', [AdminAccessController::class, 'destroy']);
         });
 
         Route::post('/auth/logout', [AuthController::class, 'logout']);

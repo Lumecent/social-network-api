@@ -57,5 +57,15 @@ class DatabaseSeeder extends Seeder
         foreach ($access as $s){
             Access::factory(1)->create($s);
         }
+
+         $published = [
+             ['name' => 'Опубликовать'],
+             ['name' => 'Черновик'],
+             ['name' => 'Отложить'],
+         ];
+
+        foreach ($published as $s){
+            Published::factory(1)->create($s);
+        }
     }
 }

@@ -52,4 +52,9 @@ class TestHelper
     {
         return Repository::getInstance()->access->startConditions()->orderBy('id', 'desc')->first();
     }
+
+    public static function getLastPublished()
+    {
+        return Repository::getInstance()->published->startConditions()->orderBy('id', 'desc')->first();
+    }
 }
