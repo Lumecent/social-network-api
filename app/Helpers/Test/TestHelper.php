@@ -47,4 +47,9 @@ class TestHelper
     {
         return Repository::getInstance()->blogCategory->startConditions()->orderBy('id', 'desc')->first();
     }
+
+    public static function getLastAccess()
+    {
+        return Repository::getInstance()->access->startConditions()->orderBy('id', 'desc')->first();
+    }
 }

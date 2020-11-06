@@ -6,6 +6,7 @@ use App\Http\Controllers\API\V1\User\SocialController;
 use App\Http\Controllers\API\V1\User\SecurityController;
 use App\Http\Controllers\API\V1\Admin\AdminSocialController;
 use App\Http\Controllers\API\V1\Admin\AdminBlogCategoryController;
+use App\Http\Controllers\API\V1\Admin\AdminAccessController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +54,11 @@ Route::group(['prefix' => '/v1'], function (){
             Route::post('/blog-category', [AdminBlogCategoryController::class, 'store']);
             Route::put('/blog-category/{category_id}', [AdminBlogCategoryController::class, 'update']);
             Route::delete('/blog-category/{category_id}', [AdminBlogCategoryController::class, 'destroy']);
+
+            Route::get('/access', [AdminAccessController::class, 'index']);
+            Route::post('/access', [AdminAccessController::class, 'store']);
+            Route::put('/access/{access_id}', [AdminAccessController::class, 'update']);
+            Route::delete('/access/{access_id}', [AdminAccessController::class, 'destroy']);
         });
 
         Route::post('/auth/logout', [AuthController::class, 'logout']);

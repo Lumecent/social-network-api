@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Access;
 use App\Models\BlogCategory;
+use App\Models\Published;
 use App\Models\Social;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -43,6 +45,17 @@ class DatabaseSeeder extends Seeder
 
         foreach ($blogCategory as $s){
             BlogCategory::factory(1)->create($s);
+        }
+
+         $access = [
+             ['name' => 'Всем'],
+             ['name' => 'Друзьям'],
+             ['name' => 'Подписчикам'],
+             ['name' => 'Никому']
+         ];
+
+        foreach ($access as $s){
+            Access::factory(1)->create($s);
         }
     }
 }
